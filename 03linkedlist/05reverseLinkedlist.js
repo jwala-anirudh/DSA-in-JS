@@ -18,9 +18,10 @@ LinkedList.prototype.reverseLinkedList = function () {
 
   while (current) {
     next = current.next;
-    current.next = prev;
 
+    current.next = prev;
     prev = current;
+
     current = next;
   }
 
