@@ -47,7 +47,6 @@ function depthFirstSearch(graph, node, visited = new Set()) {
   }
 }
 
-// run the function
 depthFirstSearch(graph, "a");
 console.log("-----------------");
 depthFirstSearchItr(graph, "a");
