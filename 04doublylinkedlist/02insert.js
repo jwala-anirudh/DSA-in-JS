@@ -21,6 +21,7 @@ DoublyLinkedList.prototype.insertAtBeginning = function (data) {
   }
 
   this.head = newNode;
+
   if (this.tail === null) {
     this.tail = newNode;
   }
@@ -34,7 +35,27 @@ DoublyLinkedList.prototype.insertAtEnd = function (data) {
   }
 
   this.tail = newNode;
+
   if (this.head === null) {
     this.head = newNode;
+  }
+};
+
+DoublyLinkedList.prototype.insertAfter = function (prevNode, data) {
+  if (prevNode === null) {
+    console.log("Invalid previous node");
+    return;
+  }
+
+  const newNode = new Node(data, prevNode.next, prevNode);
+
+  if (prevNode.next !== null) {
+    prevNode.next.prev = newNode;
+  }
+
+  prevNode.next = newNode;
+
+  if (newNode.next === null) {
+    this.tail = newNode;
   }
 };
