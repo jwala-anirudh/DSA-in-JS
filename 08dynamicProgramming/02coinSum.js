@@ -13,17 +13,14 @@
  */
 
 function sumPossible(amount, numbers, memo = {}) {
-  if (amount in memo) {
-    return memo[amount];
-  }
+  // check if memory if the amount was computed in past
+  if (amount in memo) return memo[amount];
 
-  if (amount === 0) {
-    return true;
-  }
+  // a branch of recursion that satisfies if coins add up to looking amount
+  if (amount === 0) return true;
 
-  if (amount < 0) {
-    return false;
-  }
+  // a branch of recursion that doesn't staisfy coins adding up to amount
+  if (amount < 0) return false;
 
   for (const num of numbers) {
     if (sumPossible(amount - num, numbers, memo)) {
