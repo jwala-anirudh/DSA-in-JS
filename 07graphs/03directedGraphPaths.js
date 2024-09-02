@@ -51,10 +51,16 @@ function hasPathBFS(graph, start, dest) {
       return true;
     }
 
-    if (!visited.has(node)) {
-      visited.add(node);
+    // if (!visited.has(node)) {
+    //   visited.add(node);
 
-      for (const neighbour of graph[node]) {
+    //   for (const neighbour of graph[node]) {
+    //     queue.push(neighbour);
+    //   }
+    // }
+    for (const neighbour of graph[node]) {
+      if (!visited.has(neighbour)) {
+        visited.add(neighbour);
         queue.push(neighbour);
       }
     }
